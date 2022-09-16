@@ -5,6 +5,7 @@ var $day = document.querySelector('.day');
 var $time = document.querySelector('.time');
 var $description = document.querySelector('.description');
 var $cancel = document.querySelector('.cancel');
+var $schedule = document.querySelector('.schedule');
 
 $addEntry.addEventListener('click', function (event) {
   $modal.classList.remove('hidden');
@@ -22,6 +23,9 @@ $form.addEventListener('submit', function (event) {
     description: $description.value
   };
   data.entries.push(entry);
+
+  createDom(entry);
+  $form.reset();
   $modal.classList.add('hidden');
 });
 
@@ -35,5 +39,6 @@ function createDom(entry) {
   var description = document.createElement('td');
   description.textContent = entry.description;
   tr.appendChild(description);
-  return tr;
+
+  $schedule.appendChild(tr);
 }
