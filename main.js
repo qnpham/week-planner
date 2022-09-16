@@ -24,3 +24,16 @@ $form.addEventListener('submit', function (event) {
   data.entries.push(entry);
   $modal.classList.add('hidden');
 });
+
+function createDom(entry) {
+  var tr = document.createElement('tr');
+
+  var time = document.createElement('td');
+  time.textContent = entry.time;
+  tr.appendChild(time);
+
+  var description = document.createElement('td');
+  description.textContent = entry.description;
+  tr.appendChild(description);
+  return tr;
+}
