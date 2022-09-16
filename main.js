@@ -33,7 +33,7 @@ function createDom(entry) {
   var tr = document.createElement('tr');
 
   var time = document.createElement('td');
-  time.textContent = entry.time;
+  time.textContent = entry.time + ':00';
   tr.appendChild(time);
 
   var description = document.createElement('td');
@@ -41,4 +41,12 @@ function createDom(entry) {
   tr.appendChild(description);
 
   $schedule.appendChild(tr);
+}
+
+document.addEventListener('DOMContentLoaded', reload);
+
+function reload(event) {
+  for (var i = 0; i < data.entries.length; i++) {
+    createDom(data.entries[i]);
+  }
 }
