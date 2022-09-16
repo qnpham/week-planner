@@ -21,6 +21,10 @@ thead {
   background-color: black;
 }
 
+td {
+  padding: 0.5rem;
+}
+
 tbody tr:nth-child(odd) {
   background-color: rgb(172, 44, 66);
   color: white;
@@ -42,7 +46,8 @@ button {
   text-align: center;
 }
 
-.add-entry {
+.add-entry,
+.update {
   background-color: yellow;
   border-radius: 0.25rem;
   padding: 0.5rem 1rem;
@@ -79,4 +84,8 @@ button {
 .submit {
   float: right;
   margin-top: 0.5rem;
+}
+
+.update {
+  float: right;
 }

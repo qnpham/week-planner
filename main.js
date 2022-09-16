@@ -11,6 +11,7 @@ var $schedule = document.querySelector('.schedule');
 var $span = document.querySelector('.day-title');
 var $days = document.querySelector('.btn-container');
 var $tbody = document.querySelector('tbody');
+var $header = document.querySelector('.modal-header');
 
 $addEntry.addEventListener('click', function (event) {
   $modal.classList.remove('hidden');
@@ -25,8 +26,14 @@ $form.addEventListener('submit', function (event) {
   var entry = {
     day: $day.value,
     time: $time.value,
-    description: $description.value
+    description: $description.value,
+    id: data.nextEntryId
   };
+  if (data.editing !== null) {
+
+  }
+
+  data.nextEntryId++;
   data.entries.push(entry);
 
   createDom(entry);
@@ -37,6 +44,7 @@ $form.addEventListener('submit', function (event) {
 function createDom(entry) {
   var tr = document.createElement('tr');
   tr.classList.add(entry.day);
+  tr.setAttribute('data-entry-id', entry.id);
 
   var time = document.createElement('td');
   time.textContent = entry.time + ':00';
@@ -46,7 +54,7 @@ function createDom(entry) {
   var $updateButton = document.createElement('button');
   $updateButton.textContent = 'Update';
   $updateButton.setAttribute('type', 'button');
-  console.log($updateButton);
+  $updateButton.className = 'update';
   description.textContent = entry.description;
   description.appendChild($updateButton);
   tr.appendChild(description);
@@ -82,3 +90,19 @@ function viewSwap(event) {
     }
   }
 }
+
+$tbody.addEventListener('click', function (event) {
+  if (event.target.tagName === 'BUTTON') {
+    $modal.classList.remove('hidden');
+    var realTr = event.target.closest('tr');
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].id === Number(realTr.getAttribute('data-entry-id'))) {
+        data.editing = data.entries[i];
+      }
+    }
+    $header.textContent = 'Edit Entry';
+    $day.value = data.editing.day;
+    $time.value = data.editing.time;
+    $description.value = data.editing.description;
+  }
+});
