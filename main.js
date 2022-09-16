@@ -16,5 +16,5 @@ $form.addEventListener('submit', function (event) {
     description: $description.value
   };
   data.entries.push(entry);
-  console.log(data);
+  $modal.classList.add('hidden');
 });

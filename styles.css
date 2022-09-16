@@ -1,10 +1,7 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
   margin: auto;
   padding: 0;
+  background-color: pink;
   font-family: "Space Mono", monospace;
 }
 
@@ -13,20 +10,19 @@ h2 {
   text-align: center;
 }
 
-.container {
-  max-width: 100%;
+.week {
+  border: 2px solid black;
+  padding: 1rem;
+  margin: 2rem;
+  text-align: center;
 }
 
-.row {
-  display: flex;
-}
-
-.column-full {
-  width: 100%;
-}
-
-.btn-container {
-  justify-content: center;
+.add-entry {
+  background-color: yellow;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  box-shadow: 5px 5px hotpink;
 }
 
 .modal-background {
@@ -39,7 +35,7 @@ h2 {
 }
 
 .modal-box {
-  background-color: white;
+  background-image: url("https://www.verywellhealth.com/thmb/OR1PMG_pIYnSf8A90Dww_v_VIIM=/1500x1000/filters:no_upscale():max_bytes(150000):strip_icc()/safety-and-side-effects-of-pepto-bismol-for-ibs-4128810_V3-a30625fab64a44c88cec00db7a06542c.png");
   position: fixed;
   top: 50%;
   left: 50%;
