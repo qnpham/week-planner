@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: auto;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  max-width: 100%;
+}
+
+.row {
+  display: flex;
+}
+
+.column-full {
+  width: 100%;
+}
+
+.btn-container {
+  justify-content: center;
+}
