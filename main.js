@@ -4,8 +4,14 @@ var $form = document.querySelector('.entry-form');
 var $day = document.querySelector('.day');
 var $time = document.querySelector('.time');
 var $description = document.querySelector('.description');
+var $cancel = document.querySelector('.cancel');
+
 $addEntry.addEventListener('click', function (event) {
   $modal.classList.remove('hidden');
+});
+
+$cancel.addEventListener('click', function (event) {
+  $modal.classList.add('hidden');
 });
 
 $form.addEventListener('submit', function (event) {
