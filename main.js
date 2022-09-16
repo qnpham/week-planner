@@ -1,3 +1,5 @@
+/* global data */
+
 var $addEntry = document.querySelector('.add-entry');
 var $modal = document.querySelector('.modal-background');
 var $form = document.querySelector('.entry-form');
@@ -41,7 +43,12 @@ function createDom(entry) {
   tr.appendChild(time);
 
   var description = document.createElement('td');
+  var $updateButton = document.createElement('button');
+  $updateButton.textContent = 'Update';
+  $updateButton.setAttribute('type', 'button');
+  console.log($updateButton);
   description.textContent = entry.description;
+  description.appendChild($updateButton);
   tr.appendChild(description);
 
   $schedule.appendChild(tr);
@@ -66,7 +73,6 @@ function viewSwap(event) {
     $span.textContent = event.target.textContent;
     var $tr = $tbody.querySelectorAll('tr');
     for (var i = 0; i < $tr.length; i++) {
-      console.log($tr[i].className);
       if ($tr[i].className.includes($span.textContent.toLowerCase())) {
 
         $tr[i].classList.remove('hidden');

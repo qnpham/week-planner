@@ -1,3 +1,5 @@
+/* exported data */
+
 var data = {
   entries: [],
   editing: null,
